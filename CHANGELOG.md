@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 6.0.0 (2023-09-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* automatically put user in context, merge context by default
+
+### Features
+
+* automatically put user in context, merge context by default ([6d47dd2](https://github.com/kyrisu/access-control/commit/6d47dd25c146bd49edf758378e1f5a9ee1a0e320))
+
+
+### Bug Fixes
+
+* **typings:** update types path ([82ff67d](https://github.com/kyrisu/access-control/commit/82ff67d678c6ad22f06eadad7bed3dd48db5d82d))
+
 ### [5.0.1](https://github.com/kyrisu/access-control/compare/v5.0.0...v5.0.1) (2023-09-27)
 
 ## 5.0.0 (2023-09-26)
