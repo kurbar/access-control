@@ -1,8 +1,8 @@
-[![NPM Version](https://badge.fury.io/js/role-acl.svg?style=flat)](https://npmjs.org/package/role-acl) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/kyrisu/access-control/issues)
+[![NPM Version](https://badge.fury.io/js/@kyrisu/access-control.svg?style=flat)](https://npmjs.org/package/@kyrisu/access-control) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/kyrisu/access-control/issues)
 
 Role, Attribute and conditions based Access Control for Node.js
 
-`npm i role-acl --save`
+`npm i @kyrisu/access-control --save`
 
 Many [RBAC][rbac] (Role-Based Access Control) implementations differ, but the basics is widely adopted since it simulates real life role (job) assignments. But while data is getting more and more complex; you need to define policies on resources, subjects or even environments. This is called [ABAC][abac] (Attribute-Based Access Control).
 
@@ -28,14 +28,14 @@ This library is an extension of [AccessControl][onury-accesscontrol]. But I remo
 - Fast. (Grants are stored in memory, no database queries.)
 - TypeScript support.
 - **Note**:
-  - For versions < 4.0: follow this [ReadMe](https://github.com/kyrisu/access-control/blob/6cde220e5d4956270c60f5fe58f84dcd8a257924/README.md).
+  - For versions < 4.0: follow this [ReadMe](https://github.com/tensult/@kyrisu/access-control/blob/6cde220e5d4956270c60f5fe58f84dcd8a257924/README.md).
 
 ## Guide
 
 ```js
-const AccessControl = require("role-acl");
+const AccessControl = require("@kyrisu/access-control");
 // or:
-// import { AccessControl } from 'role-acl';
+// import { AccessControl } from '@kyrisu/access-control';
 ```
 
 ## Examples
