@@ -93,10 +93,7 @@ class Query {
    *           An object that defines whether the permission is granted; and
    *           the resource attributes that the permission is granted for.
    */
-  on(
-    resource: string,
-    skipConditions?: boolean,
-  ): Permission | Promise<Permission> {
+  on(resource: string, skipConditions?: boolean) {
     return this._getPermission(
       this._.action,
       resource,

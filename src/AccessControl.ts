@@ -331,6 +331,8 @@ class AccessControl {
    *  ac.can(['admin', 'user']).createOwn('profile');
    *  // Note: when multiple roles checked, acquired attributes are union (merged).
    */
+  can(role: string | string[] | IQueryInfo): Query;
+  can(user: IUser): Query;
   can(roleOrUser: string | string[] | IQueryInfo | IUser): Query {
     if (isIUser(roleOrUser)) {
       return new Query(this._grants, roleOrUser.roles || []).context({
