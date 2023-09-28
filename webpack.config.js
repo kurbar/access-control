@@ -1,6 +1,6 @@
 module.exports = {
-  entry: './app.js',
+  entry: "./app.js",
   output: {
-    filename: 'role-acl.js'
-  }
+    filename: "access-control.js",
+  },
 };
