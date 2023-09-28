@@ -1,6 +1,7 @@
 MIT License
 
-Copyright (c) 2018, Onur Yıldırım <onur@cutepilot.com>.
+Copyright (c) 2018, Onur Yıldırım <onur@cutepilot.com> - initial implmentation
+Copyright (c) 2019, Eightytwo East IT Solutions Private Limited <tensult.com> - extension
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -12,8 +13,8 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-This is an extension to accesscontrol <https://github.com/onury/accesscontrol> and 
-Copyrighted (c) 2019, Eightytwo East IT Solutions Private Limited <tensult.com>
+This is an extension to role-acl <https://github.com/tensult/role-acl> and 
+Copyrighted (c) 2023, Krystian Paszkiewicz <kyrisu@kyrisu.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
