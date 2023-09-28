@@ -8,7 +8,9 @@ import {
   IQueryInfo,
   Permission,
   AccessControlError,
-  IFunctionCondition
+  IFunctionCondition,
+  IUser,
+  isIUser,
 } from "./core";
 
 import { ConditionUtil } from "./conditions";
@@ -86,10 +88,13 @@ class AccessControl {
    *
    *  @param {Object|Array} grants - A list containing the access grant
    *      definitions. See the structure of this object in the examples.
-   * 
+   *
    *  @param {Object} customConditionFns - custom condition functions
    */
-  constructor(grants: any = {}, customConditionFns: IDictionary<IFunctionCondition> = {} ) {
+  constructor(
+    grants: any = {},
+    customConditionFns: IDictionary<IFunctionCondition> = {},
+  ) {
     ConditionUtil.resetCustomConditionFunctions();
     ConditionUtil.setCustomConditionFunctions(customConditionFns);
     this.setGrants(grants);
@@ -124,15 +129,15 @@ class AccessControl {
     if (type === "object") {
       this._grants = CommonUtil.normalizeGrantsObject(grantsObject);
     } else if (type === "array") {
-      grantsObject.filter((grant => !grant.extend || !grant.extend.length))
-      .forEach((item: any) =>
-        CommonUtil.commitToGrants(this._grants, item)
-      );
+      grantsObject
+        .filter((grant) => !grant.extend || !grant.extend.length)
+        .forEach((item: any) => CommonUtil.commitToGrants(this._grants, item));
 
-      grantsObject.filter((item => item.extend && item.extend.length))
-      .forEach((item: any) =>
-        CommonUtil.extendRole(this._grants, item.role, item.extend)
-      );
+      grantsObject
+        .filter((item) => item.extend && item.extend.length)
+        .forEach((item: any) =>
+          CommonUtil.extendRole(this._grants, item.role, item.extend),
+        );
     }
     return this;
   }
@@ -172,7 +177,7 @@ class AccessControl {
   extendRole(
     roles: string | string[],
     extenderRoles: string | string[],
-    condition?: ICondition
+    condition?: ICondition,
   ): AccessControl {
     // When extending role we are not checking for conditions so we can use sync method
     return this.extendRoleSync(roles, extenderRoles, condition);
@@ -181,7 +186,7 @@ class AccessControl {
   extendRoleSync(
     roles: string | string[],
     extenderRoles: string | string[],
-    condition?: ICondition
+    condition?: ICondition,
   ): AccessControl {
     CommonUtil.extendRoleSync(this._grants, roles, extenderRoles, condition);
     return this;
@@ -202,7 +207,7 @@ class AccessControl {
     this._each((role: string, roleItem: any) => {
       if (roleItem.$extend) {
         // Adjust scores and remove
-        rolesToRemove.forEach(role => {
+        rolesToRemove.forEach((role) => {
           if (roleItem.$extend[role]) {
             roleItem.score -= this._grants[role].score;
             delete roleItem.$extend[role];
@@ -305,7 +310,7 @@ class AccessControl {
    *  @function
    *  @chainable
    *
-   *  @param {String|Array|IQueryInfo} role - A single role (as a string),
+   *  @param {String|Array|IQueryInfo} roleOrUser - A single role (as a string),
    *      a list of roles (as an array) or an {@link ?api=ac#AccessControl~IQueryInfo|`IQueryInfo` object}
    *      that fully or partially defines the access to be checked.
    *
@@ -326,8 +331,13 @@ class AccessControl {
    *  ac.can(['admin', 'user']).createOwn('profile');
    *  // Note: when multiple roles checked, acquired attributes are union (merged).
    */
-  can(role: string | string[] | IQueryInfo): Query {
-    return new Query(this._grants, role);
+  can(roleOrUser: string | string[] | IQueryInfo | IUser): Query {
+    if (isIUser(roleOrUser)) {
+      return new Query(this._grants, roleOrUser.roles || []).context({
+        user: roleOrUser,
+      });
+    }
+    return new Query(this._grants, roleOrUser);
   }
 
   /**
@@ -367,14 +377,14 @@ class AccessControl {
   async permission(queryInfo: IQueryInfo): Promise<Permission> {
     return new Permission(
       queryInfo,
-      await CommonUtil.getUnionAttrsOfRoles(this._grants, queryInfo)
+      await CommonUtil.getUnionAttrsOfRoles(this._grants, queryInfo),
     );
   }
 
   permissionSync(queryInfo: IQueryInfo): Permission {
     return new Permission(
       queryInfo,
-      CommonUtil.getUnionAttrsOfRolesSync(this._grants, queryInfo)
+      CommonUtil.getUnionAttrsOfRolesSync(this._grants, queryInfo),
     );
   }
 
@@ -448,11 +458,14 @@ class AccessControl {
   toJSON(): string {
     return CommonUtil.toExtendedJSON({
       grants: this._grants,
-      customConditionFunctions: ConditionUtil.getCustomConditionFunctions()
+      customConditionFunctions: ConditionUtil.getCustomConditionFunctions(),
     });
   }
 
-  registerConditionFunction(funtionName: string, fn: IFunctionCondition): AccessControl {
+  registerConditionFunction(
+    funtionName: string,
+    fn: IFunctionCondition,
+  ): AccessControl {
     ConditionUtil.registerCustomConditionFunction(funtionName, fn);
     return this;
   }
@@ -466,7 +479,7 @@ class AccessControl {
    */
   private _each(callback: (role: string, roleDefinition: any) => void): void {
     CommonUtil.eachKey(this._grants, (role: string) =>
-      callback(role, this._grants[role])
+      callback(role, this._grants[role]),
     );
   }
 
