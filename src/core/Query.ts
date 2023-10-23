@@ -180,11 +180,11 @@ class Query {
       return new Permission(
         this._,
         CommonUtil.getUnionAttrsOfRolesSync(this._grants, this._),
-      );
+      ) as Permission;
     }
     return CommonUtil.getUnionAttrsOfRoles(this._grants, this._).then(
       (attributes) => new Permission(this._, attributes),
-    );
+    ) as Promise<Permission>;
   }
 }
 
