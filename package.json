@@ -54,7 +54,7 @@
   "devDependencies": {
     "@types/lodash.clonedeep": "^4.5.7",
     "@types/matcher": "^2.0.0",
-    "@types/node": "^20.8.2",
+    "@types/node": "^20.8.7",
     "@vitest/coverage-v8": "^0.34.6",
     "handlebars": "^4.7.4",
     "istanbul": "^1.1.0-alpha.1",

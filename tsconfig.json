@@ -21,10 +21,9 @@
     "noImplicitReturns": true,
     "noImplicitUseStrict": false,
     "noFallthroughCasesInSwitch": true,
-    "outDir": "./lib",
-    "types": ["vitest/globals"]
+    "outDir": "./lib"
   },
-  "include": ["./src/**/*.ts", "test/**/*.ts"],
+  "include": ["./src/**/*.ts"],
   "exclude": [
     "node_modules",
     "./lib",
