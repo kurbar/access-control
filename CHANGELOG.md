@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.3](https://github.com/kyrisu/access-control/compare/v6.0.2...v6.0.3) (2023-10-24)
+
+
+### Bug Fixes
+
+* Notation import after version upgrade ([734fe3c](https://github.com/kyrisu/access-control/commit/734fe3c00af1c75da066127c037cae7c736d4fb7))
+
 ### [6.0.2](https://github.com/kyrisu/access-control/compare/v6.0.1...v6.0.2) (2023-10-24)
 
 
