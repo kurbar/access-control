@@ -24,13 +24,5 @@
     "outDir": "./lib"
   },
   "include": ["./src/**/*.ts"],
-  "exclude": [
-    "node_modules",
-    "./lib",
-    "./dev",
-    "./docs",
-    "./tasks",
-    "./backup",
-    "./gruntfile.js"
-  ]
+  "exclude": ["node_modules", "./lib", "./dev", "./docs"]
 }
