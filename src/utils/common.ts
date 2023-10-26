@@ -1,5 +1,5 @@
 import { Notation } from "notation";
-import { matcher } from "matcher";
+import matcher from "matcher";
 import { ArrayUtil } from "./array";
 import { ConditionUtil } from "../conditions";
 import {
