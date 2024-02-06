@@ -346,6 +346,10 @@ class AccessControl {
     return new Query(this._grants, roleOrUser);
   }
 
+  user(user: IUser) {
+    return this.setGrants(user.roles.flatMap(role => role.grants));
+  }
+
   /**
    *  Alias of `can()`.
    *  @private
