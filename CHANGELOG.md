@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/kyrisu/access-control/compare/v6.0.4...v7.0.0) (2024-02-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* load grants from user object
+
+### Features
+
+* load grants from user object ([aaa88c6](https://github.com/kyrisu/access-control/commit/aaa88c6cf64e5f86a30bd35966dab9cc9fffcd2f))
+
 ### [6.0.4](https://github.com/kyrisu/access-control/compare/v6.0.3...v6.0.4) (2023-10-26)
 
 
