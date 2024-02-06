@@ -1,6 +1,6 @@
 {
   "name": "@kyrisu/access-control",
-  "version": "7.0.0",
+  "version": "7.0.1-beta.0",
   "description": "Role, Attribute and Condition based Access Control for Node.js",
   "main": "./index.js",
   "directories": {
