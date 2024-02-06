@@ -335,7 +335,11 @@ class AccessControl {
   can(user: IUser): Query;
   can(roleOrUser: string | string[] | IQueryInfo | IUser): Query {
     if (isIUser(roleOrUser)) {
-      return new Query(this._grants, roleOrUser.roles || []).context({
+      // check if user has any custom grants
+      if (roleOrUser.roles) {
+        this.setGrants(roleOrUser.roles.flatMap(role => role.grants));
+      }
+      return new Query(this._grants, roleOrUser.roles.map(r => r.id) || []).context({
         user: roleOrUser,
       });
     }

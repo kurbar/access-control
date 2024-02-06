@@ -1,3 +1,5 @@
+import { IRole } from "./IRole";
+
 /**
  * An interface that defines user context of the access control module.
  *  @interface
@@ -11,9 +13,9 @@ interface IUser {
 
   /**
    *  Indicates a single or multiple roles assigned to the current user.
-   *  @type {String|Array<String>}
+   *  @type {Array<IRole>}
    */
-  roles: string[];
+  roles: IRole[];
 }
 
 function isIUser(obj: any): obj is IUser {
