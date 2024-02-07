@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0-beta.2](https://github.com/kyrisu/access-control/compare/v7.1.0-beta.1...v7.1.0-beta.2) (2024-02-07)
+
+
+### Bug Fixes
+
+* merging grants when adding user roles ([eb25a5d](https://github.com/kyrisu/access-control/commit/eb25a5d0e8d217febf71a702a34200d06edadaf0))
+
 ## [7.1.0-beta.1](https://github.com/kyrisu/access-control/compare/v7.1.0-beta.0...v7.1.0-beta.1) (2024-02-07)
 
 
