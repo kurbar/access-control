@@ -120,11 +120,12 @@ class AccessControl {
    *
    *  @param {Object|Array} grantsObject - A list containing the access grant
    *         definitions.
+   *  @param {boolean} merge - Whether to merge with the existing grants.
    *
    *  @returns {AccessControl} - `AccessControl` instance for chaining.
    */
-  setGrants(grantsObject: any): AccessControl {
-    this._grants = {};
+  setGrants(grantsObject: any, merge: boolean = false): AccessControl {
+    this._grants = merge ? this._grants : {};
     let type: string = CommonUtil.type(grantsObject);
     if (type === "object") {
       this._grants = CommonUtil.normalizeGrantsObject(grantsObject);
@@ -338,7 +339,7 @@ class AccessControl {
       // check if user has any custom grants
       if (roleOrUser.roles) {
         // extend current grants with user grants
-        this.setGrants([...this.getGrants(), ...roleOrUser.roles.flatMap(role => role.grants)]);
+        this.setGrants(roleOrUser.roles.flatMap(role => role.grants), true);
       }
       return new Query(this._grants, roleOrUser.roles.map(r => r.id) || []).context({
         user: roleOrUser,
