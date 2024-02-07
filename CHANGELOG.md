@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0-beta.1](https://github.com/kyrisu/access-control/compare/v7.1.0-beta.0...v7.1.0-beta.1) (2024-02-07)
+
+
+### Features
+
+* extend grants instead of replacing them when loading user roles ([6745431](https://github.com/kyrisu/access-control/commit/6745431f2dde24e58bcd40bdd5f227c317e5e676))
+
 ## [7.1.0-beta.0](https://github.com/kyrisu/access-control/compare/v7.0.1-beta.0...v7.1.0-beta.0) (2024-02-06)
 
 
