@@ -337,7 +337,8 @@ class AccessControl {
     if (isIUser(roleOrUser)) {
       // check if user has any custom grants
       if (roleOrUser.roles) {
-        this.setGrants(roleOrUser.roles.flatMap(role => role.grants));
+        // extend current grants with user grants
+        this.setGrants([...this.getGrants(), ...roleOrUser.roles.flatMap(role => role.grants)]);
       }
       return new Query(this._grants, roleOrUser.roles.map(r => r.id) || []).context({
         user: roleOrUser,
