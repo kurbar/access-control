@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0-beta.3](https://github.com/kyrisu/access-control/compare/v7.1.0-beta.2...v7.1.0-beta.3) (2024-02-21)
+
+
+### Bug Fixes
+
+* handle empty grants passed to setGrants ([531635d](https://github.com/kyrisu/access-control/commit/531635d3467d320d30c2c5ca0a1c2b028f9cfed6))
+
 ## [7.1.0-beta.2](https://github.com/kyrisu/access-control/compare/v7.1.0-beta.1...v7.1.0-beta.2) (2024-02-07)
 
 
