@@ -1,14 +1,14 @@
-import { Notation } from "notation";
+import cloneDeep from "lodash.clonedeep";
 import matcher from "matcher";
-import { ArrayUtil } from "./array";
+import { Notation } from "notation";
 import { ConditionUtil } from "../conditions";
 import {
   AccessControlError,
-  IQueryInfo,
   IAccessInfo,
   ICondition,
+  IQueryInfo,
 } from "../core";
-import cloneDeep from "lodash.clonedeep";
+import { ArrayUtil } from "./array";
 
 export class CommonUtil {
   public static isStringOrArray(value: any): boolean {
@@ -802,7 +802,7 @@ export class CommonUtil {
     return values.some(predicateFn);
   }
 
-  public static filter(object: any, attributes: string[]): any {
+  public static filter<T>(object: T, attributes: string[]): Partial<T> {
     if (!Array.isArray(attributes) || attributes.length === 0) {
       return {};
     }
@@ -810,7 +810,7 @@ export class CommonUtil {
     return notation.filter(attributes).value;
   }
 
-  public static filterAll(arrOrObj: any, attributes: string[]): any {
+  public static filterAll<T>(arrOrObj: T | T[], attributes: string[]) {
     if (!Array.isArray(arrOrObj)) {
       return this.filter(arrOrObj, attributes);
     }
