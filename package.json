@@ -1,6 +1,6 @@
 {
-  "name": "@kyrisu/access-control",
-  "version": "7.1.0-beta.4",
+  "name": "@kurbar/access-control",
+  "version": "8.0.0",
   "description": "Role, Attribute and Condition based Access Control for Node.js",
   "main": "./index.js",
   "directories": {
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kyrisu/access-control.git"
+    "url": "git+https://github.com/kurbar/access-control.git"
   },
   "keywords": [
     "access",
@@ -48,15 +48,14 @@
   "author": "kyrisu <kyrisu@kyrisu.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kyrisu/access-control/issues"
+    "url": "https://github.com/kurbar/access-control/issues"
   },
-  "homepage": "https://github.com/kyrisu/access-control#readme",
+  "homepage": "https://github.com/kurbar/access-control#readme",
   "devDependencies": {
     "@types/lodash.clonedeep": "^4.5.7",
     "@types/node": "^20.8.7",
     "@vitest/coverage-v8": "^0.34.6",
     "handlebars": "^4.7.4",
-    "istanbul": "^1.1.0-alpha.1",
     "js-yaml": "^4.1.0",
     "minimist": "^1.2.8",
     "mkdirp": "^3.0.1",
@@ -71,7 +70,7 @@
     "webpack": "^5.88.2"
   },
   "dependencies": {
-    "jsonpath-plus": "^7.2.0",
+    "jsonpath-plus": "^10.2.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.flattendeep": "^4.4.0",
     "matcher": "^4.0.0",

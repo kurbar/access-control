@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 8.0.0 (2024-11-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* load grants from user object
+* automatically put user in context, merge context by default
+
+### Features
+
+* add ac.user function to load user grants into ac ([41accde](https://github.com/kurbar/access-control/commit/41accde69837172191bcbec87480dedfa138538d))
+* automatically put user in context, merge context by default ([6d47dd2](https://github.com/kurbar/access-control/commit/6d47dd25c146bd49edf758378e1f5a9ee1a0e320))
+* extend grants instead of replacing them when loading user roles ([6745431](https://github.com/kurbar/access-control/commit/6745431f2dde24e58bcd40bdd5f227c317e5e676))
+* load grants from user object ([aaa88c6](https://github.com/kurbar/access-control/commit/aaa88c6cf64e5f86a30bd35966dab9cc9fffcd2f))
+
+
+### Bug Fixes
+
+* handle empty grants passed to setGrants ([531635d](https://github.com/kurbar/access-control/commit/531635d3467d320d30c2c5ca0a1c2b028f9cfed6))
+* merging grants when adding user roles ([eb25a5d](https://github.com/kurbar/access-control/commit/eb25a5d0e8d217febf71a702a34200d06edadaf0))
+* Notation import after version upgrade ([734fe3c](https://github.com/kurbar/access-control/commit/734fe3c00af1c75da066127c037cae7c736d4fb7))
+* revert matcher to v4 ([93b7c8a](https://github.com/kurbar/access-control/commit/93b7c8a52338db01473c99dc72167a44fcb2f272))
+* **typings:** update types path ([82ff67d](https://github.com/kurbar/access-control/commit/82ff67d678c6ad22f06eadad7bed3dd48db5d82d))
+* wrong main export path ([ba825df](https://github.com/kurbar/access-control/commit/ba825df74357e14208aae052d7707f587795efb8))
+
 ## [7.1.0-beta.3](https://github.com/kyrisu/access-control/compare/v7.1.0-beta.2...v7.1.0-beta.3) (2024-02-21)
 
 
