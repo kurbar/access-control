@@ -1,6 +1,6 @@
 {
   "name": "@kurbar/access-control",
-  "version": "8.0.0",
+  "version": "8.1.0",
   "description": "Role, Attribute and Condition based Access Control for Node.js",
   "main": "./index.js",
   "directories": {

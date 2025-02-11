@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/kurbar/access-control/compare/v8.0.0...v8.1.0) (2025-02-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* added options support in EqualsCondition, default allowUndefined to false - fails condition if false and one of the values is `undefined`. This is a breaking change compared to previous default behavior (undefined === undefined resulted in a pass).
+
+### Features
+
+* added options support in EqualsCondition, default allowUndefined to false - fails condition if false and one of the values is `undefined`. This is a breaking change compared to previous default behavior (undefined === undefined resulted in a pass). ([fd0181e](https://github.com/kurbar/access-control/commit/fd0181ec38010e9a09516ff0873873479f44824a))
+
 ## 8.0.0 (2024-11-28)
 
 
