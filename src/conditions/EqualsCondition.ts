@@ -10,8 +10,9 @@ import { ConditionUtil } from './util';
  */
 
 export class EqualsCondition implements IConditionFunction {
+    defaultOptions = { allowUndefined: false };
 
-    evaluate(args?: any, context?: any) {
+    evaluate(args?: any, context?: any, options?: EqualsCondition['defaultOptions']) {
         if (!args) {
             return true;
         }
@@ -20,6 +21,8 @@ export class EqualsCondition implements IConditionFunction {
             return false;
         }
 
+        const opts = { ...this.defaultOptions, ...(options || {}) };
+
         if (CommonUtil.type(args) !== 'object') {
             throw new AccessControlError('EqualsCondition expects type of args to be object')
         }
@@ -27,7 +30,18 @@ export class EqualsCondition implements IConditionFunction {
         return Object.keys(args).every((key) => {
             return CommonUtil.matchesAnyElement(args[key], (elm) => {
                 const keyValue = key.startsWith('$.') ?  ConditionUtil.getValueByPath(context, key) : context[key];
-                return ConditionUtil.getValueByPath(context, elm) === keyValue;
+                if (keyValue === undefined && !opts.allowUndefined) {
+                    // throw new AccessControlError(`Value for key "${key}" evaluated to undefined and allowUndefined is set to false`);
+                    return false;
+                }
+
+                const comparator = ConditionUtil.getValueByPath(context, elm);
+                if (comparator === undefined && !opts.allowUndefined) {
+                    // throw new AccessControlError(`Value for key "${elm}" evaluated to undefined and allowUndefined is set to false`);
+                    return false;
+                }
+
+                return comparator === keyValue;
             });
         });
     }
